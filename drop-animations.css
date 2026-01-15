@@ -1,0 +1,75 @@
+/* Drop Zone Arrow Animation */
+.drop-arrow {
+    width: 40px;
+    height: 60px;
+    margin: 0 auto 25px;
+    position: relative;
+    cursor: pointer;
+}
+
+.drop-arrow span {
+    position: absolute;
+    left: 50%;
+    width: 14px;
+    height: 14px;
+    border-right: 4px solid #3944BC;
+    border-bottom: 4px solid #3944BC;
+    transform: translateX(-50%) rotate(45deg);
+    animation: arrowBounce 1.6s infinite;
+    opacity: 0;
+}
+
+.drop-arrow span:nth-child(1) {
+    top: 0;
+    animation-delay: 0s;
+}
+
+.drop-arrow span:nth-child(2) {
+    top: 18px;
+    animation-delay: 0.2s;
+}
+
+.drop-arrow span:nth-child(3) {
+    top: 36px;
+    animation-delay: 0.4s;
+}
+
+@keyframes arrowBounce {
+    0% {
+        opacity: 0;
+        transform: translateX(-50%) rotate(45deg) translateY(-10px);
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        transform: translateX(-50%) rotate(45deg) translateY(10px);
+    }
+}
+
+/* Drag-over enhancement */
+.drop-zone.drag-over .drop-arrow span {
+    border-color: #74B72E;
+    filter: drop-shadow(0 0 6px rgba(116, 183, 46, 0.6));
+}
+
+.drop-zone.drag-over .drop-hint {
+    color: #74B72E;
+}
+
+/* Progress Bar */
+.progress-container {
+    width: 100%;
+    max-width: 500px;
+    margin: 20px auto;
+    display: none;
+}
+
+.progress-bar {
+    width: 0%;
+    height: 8px;
+    background: linear-gradient(90deg, #04AA6D, #38b6ff);
+    border-radius: 4px;
+    transition: width 0.3s;
+}
